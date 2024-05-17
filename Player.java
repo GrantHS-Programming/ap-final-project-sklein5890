@@ -5,33 +5,30 @@ public class Player {
             private int intelligence;
             private int wisdom;
             private int charisma;
-            private String[] weapons;
-            private String armor;
-            private String[] items;
+            private Weapon[] weaponsOwned;
+            private Armor armorOwned;
+            private Item[] itemsOwned;
+            private int level;
 
-            //basic player with nothing special(npc)
-            public Player() {
-                strength= 10;
-                dexterity= 10;
-                constitution= 10;
-                intelligence= 10;
-                wisdom= 10;
-                charisma= 10;
-
-            }
             //player with specific values, either from rolling or standard array
-            public Player(int strength,int dexterity, int constitution, int intelligence, int wisdom, int charisma){
-                this.strength= strength;
-                this.dexterity= dexterity;
-                this.constitution= constitution;
-                this.intelligence= intelligence;
-                this.wisdom= wisdom;
-                this.charisma= charisma;
+            public Player(int[] stats){
+                strength = stats[0];
+                dexterity = stats[1];
+                constitution = stats[2];
+                intelligence = stats[3];
+                wisdom = stats[4];
+                charisma = stats[5];
             }
 
-    public void setWeapons(String[] weapons) {
-        this.weapons = weapons;
-    }
+            public void setWeapons(Weapon[] weapons) {
+                this.weaponsOwned = weapons;
+            }
+
+
+
 }
+
+
+
 
 
