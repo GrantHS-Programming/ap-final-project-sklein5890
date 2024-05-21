@@ -26,18 +26,36 @@ public class FinalProject {
     public static void rolledPlayer(){
         Scanner keyboard = new Scanner(System.in);
 
+        int numsToGive[] = new int[6];
         String stats[] = {"strength", "dexterity",  "constitution",  "intelligence",  "wisdom",  "charisma"};
         int rolls[] = new int[6];
+
         for (int x = 0; x < 6; x++){
             rolls[x] = (int)((Math.random() * 20) + 1);
         }
-        System.out.println("You rolled" + Arrays.toString(rolls));
+        System.out.println("You rolled " + Arrays.toString(rolls));
 
         for (int x = 0; x < 6; x++){
-            System.out.println("What stat do you want to put "+ rolls[x] +"into?");
+            System.out.println("What number do you want to assign to "+ stats[x] +" ?");
             keyboard.useDelimiter("\\n");
-            System.out.println(stats);
-            String choice = keyboard.next();
+            System.out.println(Arrays.toString(rolls));
+            int choice = keyboard.nextInt();
+
+            int p = 0;
+            int m = 0;
+            for (int z : rolls){
+                if (rolls[p] == choice){
+                    numsToGive[m] = choice;
+                }
+                else {
+                    System.out.println("not in rolls list");
+                }
+                p++;
+                m++;
+            }
+
+
+            //doenst work above
         }
 
     }
