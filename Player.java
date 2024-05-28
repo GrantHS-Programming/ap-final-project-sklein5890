@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Player {
             private int strength;
             private int dexterity;
@@ -5,12 +7,14 @@ public class Player {
             private int intelligence;
             private int wisdom;
             private int charisma;
-            private Weapon[] weaponsOwned;
             private Armor armorOwned;
-            private Item[] itemsOwned;
+            private ArrayList<Weapon> weaponsOwned = new ArrayList<>();
+            private ArrayList<Item> itemsOwned = new ArrayList<>();
             private int level;
 
-            //player with specific values, either from rolling or standard array
+
+
+    //player with specific values, either from rolling or standard array
             public Player(int[] stats){
                 strength = stats[0];
                 dexterity = stats[1];
@@ -20,8 +24,12 @@ public class Player {
                 charisma = stats[5];
             }
 
-            public void setWeapons(Weapon[] weapons) {
+            public void setWeapons(ArrayList<Weapon> weapons) {
                 this.weaponsOwned = weapons;
+            }
+
+            public void setItems(ArrayList<Item> items){
+                this.itemsOwned = items;
             }
 
 

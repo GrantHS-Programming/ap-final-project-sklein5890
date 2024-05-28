@@ -15,18 +15,43 @@ public class FinalProject {
         System.out.println();
 
         keyboard.useDelimiter("\\n");
-        System.out.println("Do you want to use : (1) rolls, (2) standard array, (3) your own values?");
-        int choice = keyboard.nextInt();
+        System.out.println("What class do you want to be?");
+        System.out.println("Options: Fighter, Wizard, Cleric,");
+        String classChoice = keyboard.next();
 
-        if (choice == 1){
-            Player player1 = new Player(rolledPlayer());
+        if (classChoice.equals("Fighter")){
+            keyboard.useDelimiter("\\n");
+            System.out.println("Do you want to use : (1) rolls, (2) standard array, (3) your own values?");
+            int rollChoice = keyboard.nextInt();
+
+            if (rollChoice == 1){
+                Player player1 = new Fighter(rolledPlayer());
+            }
+
+            else if(rollChoice == 2){
+                Player player1 = new Fighter(standardArrayPlayer());
+            }
+
+            else if (rollChoice == 3){
+                Player player1 = new Fighter(ownValuesPlayer());
+            }
         }
 
-        else if(choice == 2){
-            Player player1 = new Player(standardArrayPlayer());
+        else {
+            keyboard.useDelimiter("\\n");
+            System.out.println("Do you want to use : (1) rolls, (2) standard array, (3) your own values?");
+            int rollChoice = keyboard.nextInt();
+
+            if (rollChoice == 1) {
+                Player player1 = new Player(rolledPlayer());
+            } else if (rollChoice == 2) {
+                Player player1 = new Player(standardArrayPlayer());
+            } else if (rollChoice == 3) {
+                Player player1 = new Player(ownValuesPlayer());
+            }
         }
 
-    }
+}
 
     public static int[] rolledPlayer(){
         Scanner keyboard = new Scanner(System.in);
@@ -92,6 +117,24 @@ public class FinalProject {
                 p++;
             }
             rolls.remove(rolls.indexOf(choice));
+            l++;
+        }
+        System.out.println("Here are the final values for your player: (in order of:\"strength\", \"dexterity\",  \"constitution\",  \"intelligence\",  \"wisdom\",  \"charisma\") "+Arrays.toString(numsToGive));
+        return numsToGive;
+    }
+
+    public static int[] ownValuesPlayer(){
+        Scanner keyboard = new Scanner(System.in);
+
+        int numsToGive[] = new int[6];
+        String stats[] = {"strength", "dexterity",  "constitution",  "intelligence",  "wisdom",  "charisma"};
+
+        int l = 0;
+        for (int x = 0; x < 6; x++){
+            System.out.println("Which number do you want to assign to "+ stats[x] +" ?");
+            keyboard.useDelimiter("\\n");
+            Integer choice = keyboard.nextInt();
+            numsToGive[l] = choice;
             l++;
         }
         System.out.println("Here are the final values for your player: (in order of:\"strength\", \"dexterity\",  \"constitution\",  \"intelligence\",  \"wisdom\",  \"charisma\") "+Arrays.toString(numsToGive));

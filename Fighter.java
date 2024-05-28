@@ -5,8 +5,4 @@ public class Fighter extends Player{
 
     }
 
-    @Override
-    public void setWeapons(Weapon[] weapons) {
-        super.setWeapons(weapons);
-    }
 }
