@@ -4,15 +4,20 @@ import java.util.Scanner;
 
 public class FinalProject {
 
+
     public static void main(String[] args) {
         makePlayer();
     }
 
     public static void makePlayer(){
+
+        int[] defaultStats = {15,14,13,12,10,8};
+
         Scanner keyboard = new Scanner(System.in);
 
         System.out.println("Welcome to DND Character Creator!");
         System.out.println();
+        Player player1 = null;
 
         keyboard.useDelimiter("\\n");
         System.out.println("What class do you want to be?");
@@ -25,15 +30,51 @@ public class FinalProject {
             int rollChoice = keyboard.nextInt();
 
             if (rollChoice == 1){
-                Player player1 = new Fighter(rolledPlayer());
+                player1 = new Fighter(rolledPlayer());
             }
 
             else if(rollChoice == 2){
-                Player player1 = new Fighter(standardArrayPlayer());
+                player1 = new Fighter(standardArrayPlayer());
             }
 
             else if (rollChoice == 3){
-                Player player1 = new Fighter(ownValuesPlayer());
+                player1 = new Fighter(ownValuesPlayer());
+            }
+        }
+
+        else if (classChoice.equals("Wizard")){
+            keyboard.useDelimiter("\\n");
+            System.out.println("Do you want to use : (1) rolls, (2) standard array, (3) your own values?");
+            int rollChoice = keyboard.nextInt();
+
+            if (rollChoice == 1){
+                player1 = new Wizard(rolledPlayer());
+            }
+
+            else if(rollChoice == 2){
+                player1 = new Wizard(standardArrayPlayer());
+            }
+
+            else if (rollChoice == 3){
+                player1 = new Wizard(ownValuesPlayer());
+            }
+        }
+
+        else if (classChoice.equals("Cleric")){
+            keyboard.useDelimiter("\\n");
+            System.out.println("Do you want to use : (1) rolls, (2) standard array, (3) your own values?");
+            int rollChoice = keyboard.nextInt();
+
+            if (rollChoice == 1){
+                player1 = new Cleric(rolledPlayer());
+            }
+
+            else if(rollChoice == 2){
+                player1 = new Cleric(standardArrayPlayer());
+            }
+
+            else if (rollChoice == 3){
+                player1 = new Cleric(ownValuesPlayer());
             }
         }
 
@@ -43,15 +84,25 @@ public class FinalProject {
             int rollChoice = keyboard.nextInt();
 
             if (rollChoice == 1) {
-                Player player1 = new Player(rolledPlayer());
-            } else if (rollChoice == 2) {
-                Player player1 = new Player(standardArrayPlayer());
-            } else if (rollChoice == 3) {
-                Player player1 = new Player(ownValuesPlayer());
+                player1 = new Player(rolledPlayer());
+            }
+            else if (rollChoice == 2) {
+                player1 = new Player(standardArrayPlayer());
+            }
+            else if (rollChoice == 3) {
+                player1 = new Player(ownValuesPlayer());
+            }
+            else {
+                player1 = new Player(defaultStats);
             }
         }
 
-}
+
+        System.out.println("Here are the final values for your " + player1.getClassName() +" character : (in order of:\"strength\", \"dexterity\",  \"constitution\",  \"intelligence\",  \"wisdom\",  \"charisma\") ");
+        System.out.println(Arrays.toString(player1.getAllStats()));
+
+
+    }
 
     public static int[] rolledPlayer(){
         Scanner keyboard = new Scanner(System.in);
@@ -82,7 +133,6 @@ public class FinalProject {
             rolls.remove(rolls.indexOf(choice));
             l++;
         }
-        System.out.println("Here are the final values for your player: (in order of:\"strength\", \"dexterity\",  \"constitution\",  \"intelligence\",  \"wisdom\",  \"charisma\") "+Arrays.toString(numsToGive));
         return numsToGive;
     }
 
@@ -119,7 +169,6 @@ public class FinalProject {
             rolls.remove(rolls.indexOf(choice));
             l++;
         }
-        System.out.println("Here are the final values for your player: (in order of:\"strength\", \"dexterity\",  \"constitution\",  \"intelligence\",  \"wisdom\",  \"charisma\") "+Arrays.toString(numsToGive));
         return numsToGive;
     }
 
@@ -137,7 +186,6 @@ public class FinalProject {
             numsToGive[l] = choice;
             l++;
         }
-        System.out.println("Here are the final values for your player: (in order of:\"strength\", \"dexterity\",  \"constitution\",  \"intelligence\",  \"wisdom\",  \"charisma\") "+Arrays.toString(numsToGive));
         return numsToGive;
     }
 

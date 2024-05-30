@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 
 public class Player {
+
+            private String className = "no class";
             private int strength;
             private int dexterity;
             private int constitution;
@@ -32,6 +34,18 @@ public class Player {
                 this.itemsOwned = items;
             }
 
+            public int[] getAllStats(){
+                int[] stats = {strength,dexterity,constitution,intelligence,wisdom,charisma};
+                return stats;
+            }
+
+            public void setClassName(String str){
+                className = str;
+            }
+
+            public String getClassName(){
+                return className;
+            }
 
 
 }
