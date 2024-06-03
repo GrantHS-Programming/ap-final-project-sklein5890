@@ -24,7 +24,7 @@ public class FinalProject {
         System.out.println("Options: Fighter, Wizard, Cleric,");
         String classChoice = keyboard.next();
 
-        if (classChoice.equals("Fighter")){
+        if (classChoice.equals("Fighter") || classChoice.equals("fighter")){
             keyboard.useDelimiter("\\n");
             System.out.println("Do you want to use : (1) rolls, (2) standard array, (3) your own values?");
             int rollChoice = keyboard.nextInt();
@@ -42,7 +42,7 @@ public class FinalProject {
             }
         }
 
-        else if (classChoice.equals("Wizard")){
+        else if (classChoice.equals("Wizard")|| classChoice.equals("wizard")){
             keyboard.useDelimiter("\\n");
             System.out.println("Do you want to use : (1) rolls, (2) standard array, (3) your own values?");
             int rollChoice = keyboard.nextInt();
@@ -60,7 +60,7 @@ public class FinalProject {
             }
         }
 
-        else if (classChoice.equals("Cleric")){
+        else if (classChoice.equals("Cleric")|| classChoice.equals("cleric")){
             keyboard.useDelimiter("\\n");
             System.out.println("Do you want to use : (1) rolls, (2) standard array, (3) your own values?");
             int rollChoice = keyboard.nextInt();
@@ -96,6 +96,8 @@ public class FinalProject {
                 player1 = new Player(defaultStats);
             }
         }
+
+        player1.addToStats(player1.pickRace());
 
 
         System.out.println("Here are the final values for your " + player1.getClassName() +" character : (in order of:\"strength\", \"dexterity\",  \"constitution\",  \"intelligence\",  \"wisdom\",  \"charisma\") ");
@@ -188,6 +190,7 @@ public class FinalProject {
         }
         return numsToGive;
     }
+
 
 
 }
