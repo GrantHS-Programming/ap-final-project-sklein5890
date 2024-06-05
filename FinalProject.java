@@ -192,5 +192,21 @@ public class FinalProject {
     }
 
 
+    public static void askMakeItem(){
+        Scanner keyboard = new Scanner(System.in);
+
+        keyboard.useDelimiter("\\n");
+        System.out.println("What type of item do you want to make?");
+        System.out.println("Basic, Weapon, or Armor?");
+        String makeChoice = keyboard.next();
+
+
+        if (makeChoice.equals("Basic")){
+
+        }
+
+
+    }
+
 
 }
